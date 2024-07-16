@@ -19,6 +19,7 @@ json = response.json()
 
 # print(json)
 result = json["results"]
+print(result)
 for shops in result["shop"]:
     print(f'名前：{shops["name"]}')
     print(f'住所：{shops["address"]}')
