@@ -18,7 +18,7 @@ def delete_student():
     payload={
         "id":id
     }
-    respons_put = requests.delete(url,json=payload)
+    respons_put = requests.delete(url,params=payload)
 
     status_put = respons_put.status_code
     if status_put == 204:

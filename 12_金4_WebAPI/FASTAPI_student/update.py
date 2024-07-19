@@ -6,8 +6,8 @@ def update_student():
 
     while True:
         id = input_util.input_int("更新したいidを入力してください>>>")
-        url = f"http://3.80.93.174:8000/students/{id}"
-        respons_get = requests.get(url,params=payload)
+        url = f"http://54.82.49.225:8000/students/{id}"
+        respons_get = requests.get(url)
         status_get = respons_get.status_code
         if status_get == 404:
             print('404 Not Found')

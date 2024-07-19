@@ -13,12 +13,7 @@ def delete_student():
             print('404 Not Found')
         else:
             break
-
-    url = "http://54.82.49.225:8000/students/"
-    payload={
-        "id":id
-    }
-    respons_put = requests.delete(url,json=payload)
+    respons_put = requests.delete(url)
 
     status_put = respons_put.status_code
     if status_put == 204:
