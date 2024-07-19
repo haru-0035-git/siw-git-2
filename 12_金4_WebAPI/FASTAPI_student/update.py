@@ -6,10 +6,7 @@ def update_student():
 
     while True:
         id = input_util.input_int("更新したいidを入力してください>>>")
-        url = f"http://192.168.0.30:8000/students/{id}"
-        payload = {
-            id:id
-        }
+        url = f"http://3.80.93.174:8000/students/{id}"
         respons_get = requests.get(url,params=payload)
         status_get = respons_get.status_code
         if status_get == 404:
@@ -18,7 +15,7 @@ def update_student():
             break
     name = input('名前を入力してください>>')
 
-    url = "http://192.168.0.30:8000/students/"
+    url = "http://54.82.49.225:8000/students/"
     payload={
         "name":name,
         "id":id

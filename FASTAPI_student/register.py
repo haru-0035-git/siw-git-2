@@ -3,9 +3,11 @@ def insert():
     sys.dont_write_bytecode = True
     import requests
     from util import input_util
+    import json
+
     while True:
         id = input_util.input_int("idを入力してください>>>")
-        url = f"http://54.82.49.225:8000/students/{id}"
+        url = f"http://3.80.93.174:8000/students/{id}"
         respons_get = requests.get(url)
         status_get = respons_get.status_code
         if status_get == 404:
@@ -16,15 +18,18 @@ def insert():
     birthday = input_util.input_date('生年月日を入力してください>>')
     cls = input('クラスを入力してください>>')
 
-    url = "http://54.82.49.225:8000/students/"
+    url = "http://3.80.93.174:8000/students/"
     payload={
         "id":id,
         "name":name,
         "birthday":birthday,
         "cls":cls
     }
-    
-    respons_post = requests.post(url,json=payload)
+    #データをjsonに変換
+    json_data = json.dump(payload)
+    #ヘッダ情報
+    header = {"Content-Type":"application/json"}
+    respons_post = requests.post(url,data=payload,headers=header)
 
     status_post = respons_post.status_code
     if status_post == 201:

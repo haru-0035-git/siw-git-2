@@ -3,7 +3,7 @@ def select_all():
     sys.dont_write_bytecode = True
     import requests
 
-    url = "http://54.82.49.225:8000/students"
+    url = "http://3.80.93.174:8000/students"
     respons = requests.get(url)
 
     json = respons.json()
