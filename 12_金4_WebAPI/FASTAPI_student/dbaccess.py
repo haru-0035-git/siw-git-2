@@ -14,7 +14,7 @@ class Student(BaseModel):
     birthday: datetime.date
     cls:str = None
 
-#MySQLに接続
+
 mydb = mysql.connector.connect(
     host = 'localhost',
     user = 'root',
