@@ -7,7 +7,7 @@ def insert():
 
     while True:
         id = input_util.input_int("idを入力してください>>>")
-        url = f"http://3.80.93.174:8000/students/{id}"
+        url = f"http://34.229.128.86:8000/students/{id}"
         respons_get = requests.get(url)
         status_get = respons_get.status_code
         if status_get == 404:
@@ -18,7 +18,7 @@ def insert():
     birthday = input_util.input_date('生年月日を入力してください>>')
     cls = input('クラスを入力してください>>')
 
-    url = "http://3.80.93.174:8000/students/"
+    url = "http://34.229.128.86:8000/students/"
     payload={
         "id":id,
         "name":name,
