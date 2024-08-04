@@ -1,7 +1,8 @@
-from menu import accountbook_delete
-from menu import accountbook_register
-from menu import accountbook_list
-from menu import accountbook_update
+import accountbook_delete
+import accountbook_register
+import accountbook_list
+import accountbook_update
+import input_util
 while True:
     print('=== 帳簿メニュー ===')
     print('1. 帳簿登録')

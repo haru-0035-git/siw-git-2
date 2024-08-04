@@ -70,7 +70,18 @@ def delete(id:int,response:Response):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"Not Found"}
 
-
+@app.get("/accountbook/{id}",status_code=200)
+def find_id(id:int,response:Response):
+    sql = 'select * from accountbooks where id = %s order by id'
+    data = [id]
+    cursor = mydb.cursor(dictionary=True)
+    cursor.execute(sql,data)
+    result = cursor.fetchone()
+    if result != None:
+        return {'students':result}
+    else:
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return {"Not Found"}
 
 #学生IDの存在チェック
 def is_student_id_exists(id):

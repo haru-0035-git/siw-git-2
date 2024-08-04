@@ -5,7 +5,7 @@ def find_by_id():
     from util import input_util
     while True:
         id = input_util.input_int("idを入力してください>>>")
-        url = f"http://34.229.128.86:8000/students/{id}"
+        url = f"http://172.0.0.1:8000/students/{id}"
 
         respons = requests.get(url)
         status = respons.status_code
