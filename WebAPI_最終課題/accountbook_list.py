@@ -12,7 +12,7 @@ def selectall():
     respons = requests.get(url)
 
     json = respons.json()
-    result = json["accountbook"]
+    result = json["accountbooks"]
     print(f"{'ID':<4}{'年月日':<9}{'種別':<4}{'内訳':<7}{'金額':<5}")
     print("-"*60)
 

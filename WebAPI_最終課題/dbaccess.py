@@ -39,14 +39,14 @@ def find_date(date:str,response:Response):
     cursor.execute(sql,data)
     result = cursor.fetchall()
     if result != None:
-        return {'accountbook':result}
+        return {'accountbooks':result}
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"Not Found"}
     
-@app.put("/accountbook/",status_code=200)
+@app.put("/accountbook/",status_code=204)
 def update(accountbook:Accountbook,response:Response):
-    if is_student_id_exists(accountbook.id):
+    if is_accountbook_id_exists(accountbook.id):
         sql = "update accountbooks set date = %s,bop = %s ,breakdown = %s ,price = %s where id = %s"
         date = [accountbook.date,accountbook.bop,accountbook.breakdown,accountbook.price,accountbook.id]
         cursor = mydb.cursor(dictionary=True)
@@ -57,9 +57,9 @@ def update(accountbook:Accountbook,response:Response):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"Not Found"}
 
-@app.delete("/accountbook/",status_code=200)
+@app.delete("/accountbook/",status_code=204)
 def delete(id:int,response:Response):
-    if is_student_id_exists(id):
+    if is_accountbook_id_exists(id):
         sql = "delete from accountbooks where id = %s"
         date = [id]
         cursor = mydb.cursor(dictionary=True)
@@ -70,21 +70,21 @@ def delete(id:int,response:Response):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"Not Found"}
 
-@app.get("/accountbook/{id}",status_code=200)
+@app.get("/accountbook/find_id/{id}",status_code=200)
 def find_id(id:int,response:Response):
     sql = 'select * from accountbooks where id = %s order by id'
-    data = [id]
+    data = (id,)
     cursor = mydb.cursor(dictionary=True)
     cursor.execute(sql,data)
     result = cursor.fetchone()
     if result != None:
-        return {'students':result}
+        return {'accountbook':result}
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
-        return {"Not Found"}
+        return {"detail": "Not Found"}
 
 #学生IDの存在チェック
-def is_student_id_exists(id):
+def is_accountbook_id_exists(id):
     sql = 'select * from accountbooks where id = %s'
     data = [id]
     cursor = mydb.cursor(dictionary=True)

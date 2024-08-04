@@ -3,7 +3,7 @@ def insert():
     import input_util
     print('⋆⋆⋆ 帳簿登録 ⋆⋆⋆')
     bop = input_util.input_bop('収入(1) or 支出(2)を入力してください : ')
-    date = input_util.input_date('日付を入力してください [%Y-%m-%d] : ')
+    date = input_util.input_date_day('日付を入力してください [%Y-%m-%d] : ')
     breakdown = input('内訳を入力してください : ')
     price = input_util.input_int('金額を入力してください : ')
 
