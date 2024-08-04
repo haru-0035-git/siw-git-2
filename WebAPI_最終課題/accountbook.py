@@ -1,7 +1,7 @@
 import accountbook_delete
 import accountbook_register
 import accountbook_list
-# import accountbook_update
+import accountbook_update
 import input_util
 while True:
     print('=== 帳簿メニュー ===')
@@ -15,8 +15,8 @@ while True:
         accountbook_register.insert()
     elif judge == '2':
         accountbook_list.selectall()
-    # elif judge == '3':
-    #     accountbook_update
+    elif judge == '3':
+        accountbook_update.update()
     # elif judge == '4':
     #     accountbook_delete
     elif judge == '5':
