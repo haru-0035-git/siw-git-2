@@ -57,7 +57,7 @@ def update(accountbook:Accountbook,response:Response):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"Not Found"}
 
-@app.delete("/accountbook/",status_code=204)
+@app.delete("/accountbook/{id}",status_code=204)
 def delete(id:int,response:Response):
     if is_accountbook_id_exists(id):
         sql = "delete from accountbooks where id = %s"

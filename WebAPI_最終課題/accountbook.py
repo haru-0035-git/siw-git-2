@@ -17,8 +17,8 @@ while True:
         accountbook_list.selectall()
     elif judge == '3':
         accountbook_update.update()
-    # elif judge == '4':
-    #     accountbook_delete
+    elif judge == '4':
+        accountbook_delete.delete()
     elif judge == '5':
         break
     else:
