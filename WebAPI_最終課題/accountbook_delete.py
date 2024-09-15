@@ -2,7 +2,7 @@ def delete():
     import requests
     import input_util
 
-    print('⋆⋆⋆ 帳簿更新 ⋆⋆⋆')
+    print('⋆⋆⋆ 帳簿削除 ⋆⋆⋆')
     while True:
         id = input_util.input_int('IDを入力してください : ')
         url = f"http://127.0.0.1:8000/accountbook/find_id/{id}"
@@ -30,10 +30,10 @@ def delete():
                 response = requests.delete(url)
                 status_put = response.status_code
                 if status_put == 204:
-                    print('帳簿を更新しました')
+                    print('帳簿を削除しました')
                     break
                 else:
-                    print('更新に失敗しました')
+                    print('削除に失敗しました')
             elif judge.lower() == 'n':
                 return None
             else:

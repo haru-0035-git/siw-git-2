@@ -1,0 +1,13 @@
+@startuml クラス図
+class Drone {
+  +BatteryLevel
+  +Position
+  +Speed
+}
+
+class Flight {
+  +startFlight()
+}
+
+Drone --> Flight : starts
+@enduml

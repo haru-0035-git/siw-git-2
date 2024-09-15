@@ -43,3 +43,12 @@ def format_date_str(date):
     formatted_date = date.strftime('%Y年%m月')
     formatted_date = formatted_date.replace('年0', '年')
     return formatted_date
+
+def input_space(prompt):
+    while True:
+        str = input(prompt)
+        str2 = str.strip()
+        if str2 == "":
+            print('この欄は必須のフィールドです')
+        else:
+            return str
